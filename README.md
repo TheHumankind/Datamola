@@ -1,2 +1,2 @@
 # Datamola
-Figma link: https://www.figma.com/file/YOm164xiubl217TpaaqfWs/Untitled?node-id=0%3A1
+Figma: https://www.figma.com/file/8IvFMhYZ3Gpc3rxax5yrTk/Untitled-(Copy)?node-id=105%3A303
