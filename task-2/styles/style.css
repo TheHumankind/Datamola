@@ -1,4 +1,62 @@
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@700&family=Roboto+Condensed:wght@300;400;700&display=swap');
+
 * {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    min-height: 100vh;
+    background-color: var(--white-color);
+}
+
+button {
+    cursor: pointer;
+    outline: none;
+}
+
+.error-text {
+    font-family: Roboto Condensed;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 48px;
+    line-height: 30px;
+    color: black;
+}
+
+.button-text {
+    font-family: Roboto Condensed;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 28px;
+    line-height: 26px;
+    color: var(--white-color);
+}
+
+.placeholder-text {
+    font-family: Roboto Condensed;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 24px;
+    line-height: 30px;
+}
+
+.twitt-text {
+    font-family: Lato;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 22px;
+    line-height: 30px;
+}
+
+.date-text {
+    font-family: Roboto Condensed;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 30px;
 }
