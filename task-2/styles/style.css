@@ -19,6 +19,12 @@ button {
     outline: none;
 }
 
+.btn {
+    background-color: var(--dark-color);
+    border: none;
+    border-radius: 4px;
+}
+
 .error-text {
     font-family: Roboto Condensed;
     font-style: normal;
@@ -59,4 +65,59 @@ button {
     font-weight: normal;
     font-size: 14px;
     line-height: 30px;
+}
+
+.custom-scroll {
+    position: absolute;
+    top: 0px;
+    right: 5px;
+    width: 10px;
+    height: 100%;
+    border: 1px solid var(--main-color);
+    border-radius: 8px;
+}
+
+.custom-progress {
+    position: absolute;
+    top: 2px;
+    left: 50%;
+    width: 6px;
+    height: 20px;
+    background-color: var(--main-color);
+    border-radius: 6px;
+    transform: translateX(-50%);
+}
+
+.custom-dropdown {
+    margin-top: 2px;
+    padding: 0;
+    min-height: 100px;
+    overflow: scroll;
+    padding-bottom: 0px;
+    scroll-padding-bottom: 0;
+}
+
+.custom-dropdown-item {
+    display: flex;
+    justify-content: center;
+    margin-right: 20px;
+    border-radius: 4px;
+    transition: .2s;
+    cursor: pointer;
+}
+
+.custom-dropdown-item:hover {
+    background-color: rgba(42, 157, 143, .2);
+}
+
+.custom-dropdown::-webkit-scrollbar {
+    width: 0;
+}
+
+.input-border-style {
+    padding: 2%;
+    border: 2px solid var(--main-color);
+    border-radius: 4px;
+    resize: none;
+    outline-color: var(--dark-color);
 }

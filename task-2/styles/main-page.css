@@ -94,8 +94,20 @@
     border: none;
 }
 
+.filter-values {
+    display: flex;
+    justify-content: center;
+    column-gap: 10px;
+    height: 120px;
+    padding: 12px;
+}
+
 
 .filter-value {
+    position: relative;
     display: flex;
     flex-direction: column;
+    max-width: 143px;
+    width: 100%;
+    row-gap: 10px;
 }
