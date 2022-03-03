@@ -20,6 +20,10 @@ button {
     outline: none;
 }
 
+a {
+    text-decoration: none;
+}
+
 .container {
     max-width: 700px;
     min-width: 320px;
@@ -61,6 +65,7 @@ button {
     font-weight: normal;
     font-size: 24px;
     line-height: 30px;
+    color: var(--dark-color);
 }
 
 .post-text {
@@ -69,6 +74,7 @@ button {
     font-weight: normal;
     font-size: 22px;
     line-height: 30px;
+    color: var(--dark-color);
 }
 
 .date-text {
