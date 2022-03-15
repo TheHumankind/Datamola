@@ -86,15 +86,18 @@ export let module = (function() {
                 });
             }
         }
-        if (filterConfig.dateFrom || filterConfig.dateTo) {
-            tweetsCopy = tweetsCopy.filter((tweet) => {
-                console.log(+filterConfig.dateFrom);
-            });
-        }
-
+        const dateFrom = filterConfig.dateFrom ? +filterConfig.dateFrom : +(new Date(0));
+        const dateTo = +filterConfig.dateTo > +(new Date()) || !filterConfig.dateTo ? +(new Date()) : +filterConfig.dateTo;
+        tweetsCopy = tweetsCopy.filter(tweet => {
+            if (dateFrom < +tweet.createdAt && dateTo >= +tweet.createdAt) {
+                return tweet;
+            } 
+        })
         tweetsCopy = [...tweetsCopy];
         return tweetsCopy.slice(skip, top + skip);
     }
+
+    console.log(getTweets(0, 10, {dateTo: +new Date() - 1000}));
 
     function addComment(id, text) {
         if (typeof id !== 'string' || text.length === 0 || typeof text !== 'string') {
@@ -148,5 +151,4 @@ export let module = (function() {
     // console.log(addTweet('ssssssss'));
     // console.log(validateTweet(tweets[0]));
     // console.log(getTweet('5'));
-    console.log(getTweets(0, 10, {hashtags: ['datamola'], dateFrom: new Date().toISOString()}));
 }());
