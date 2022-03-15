@@ -86,18 +86,67 @@ export let module = (function() {
                 });
             }
         }
-        if (filterConfig.dateFrom) {
-          console.log(typeof filterConfig.dateFrom)
+        if (filterConfig.dateFrom || filterConfig.dateTo) {
+            tweetsCopy = tweetsCopy.filter((tweet) => {
+                console.log(+filterConfig.dateFrom);
+            });
         }
 
         tweetsCopy = [...tweetsCopy];
         return tweetsCopy.slice(skip, top + skip);
     }
 
-    console.log(changeUser('maik'));
-    console.log(editTweet('2', 'Вафли бывают красные'));
-    console.log(addTweet('ssssssss'));
-    console.log(validateTweet(tweets[0]));
-    console.log(getTweet('5'));
-    console.log(getTweets(0, 10, {hashtags: ['datamola'], dateFrom: new Date()}));
+    function addComment(id, text) {
+        if (typeof id !== 'string' || text.length === 0 || typeof text !== 'string') {
+            return false;
+        }
+        const tweet = tweets.find((e) => e.id = id);
+        if (!tweet) {
+            return false;
+        }
+        tweet.comments.push({
+            id: tweet.comments.length,
+            text: text,
+            createdAt: new Date(),
+            author: user
+        }); 
+        return true;
+    }
+
+    function validateComment(com) {
+        if (!(com instanceof Object) || com.constructor !== Object ) {
+            return false;
+        }  
+        const obligatoryKeys = ['id', 'text', 'createdAt', 'author'];
+        const comKeys = Object.keys(com);
+        for(let i = 0; i < obligatoryKeys.length; i++) {
+            if (!comKeys.includes(obligatoryKeys[i]) || typeof com[obligatoryKeys[i]] !== 'string') {
+                return false;
+            }
+        }
+        return true;
+    }
+    
+    function removeTweet(id) {
+        const tweet = tweets.find((e) => e.id = id);
+        if (!tweet) {
+            return false;
+        }
+        tweets.splice(tweets.indexOf(tweet), 1);
+        console.log(tweets);
+        return true;
+    }
+    
+    // console.log(validateComment({id: '1', text: 'string', createdAt: new Date().toISOString(), author: 'vlad'}));
+    // console.log(removeTweet('1'));
+    // console.log(removeTweet('15'));
+    // console.log(tweets[0]);
+    // console.log(addComment(tweets[0].id, 'string'));
+    // console.log(tweets[0]);
+    // console.log(changeUser('maik'));
+    // console.log(editTweet('2', 'Вафли бывают красные'));
+    // console.log(addTweet('ssssssss'));
+    // console.log(validateTweet(tweets[0]));
+    // console.log(getTweet('5'));
+    console.log(getTweets(0, 10, {hashtags: ['datamola'], dateFrom: new Date().toISOString()}));
 }());
